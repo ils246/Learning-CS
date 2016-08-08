@@ -23,3 +23,7 @@ reverseHelper (NonEmptyQ a b ) ac = reverseHelper b (NonEmptyQ a ac)
 enqueue :: Queue t -> t -> Queue t
 enqueue b x = reverseQ (NonEmptyQ x (reverseQ b))
 --            reverseQ >>> (NonEmptyQ x) >>> reverseQ
+
+peek :: Queue t -> t
+peek EmptyQ = error "This is empty"
+peek (NonEmptyQ t x ) = t  
